@@ -8,6 +8,7 @@ note: profile is positive below MSW
 gPath = ''
 import model as sb
 import numpy as np
+import pandas as pd
 import Subroutines as sub
 import globVars
 import matplotlib.pyplot as plt
@@ -50,13 +51,12 @@ if __name__ == '__main__':
 #
 ##initial profile
     F = '%sTest/'%gPath
-    xIn = np.asarray(np.loadtxt('%sreach3.xz'%F)[:,0],dtype=np.float64,order='F')/3.2808
-    yIn = np.asarray(np.loadtxt('%sreach3.xz'%F)[:,1],dtype=np.float64,order='F')/3.2808
-    xF = np.loadtxt('%sfinal.xz'%F)[:,0]/3.2808
-    yF = np.loadtxt('%sfinal.xz'%F)[:,1]/3.2808
-    xS = np.loadtxt('%sreach3_Final.xz'%F)[:,0]/3.2808
-    yS = np.loadtxt('%sreach3_Final.xz'%F)[:,1]/3.2808
-    
+    xIn = np.asarray(pd.read_csv('Test/reach3.csv')['0'],dtype=np.float64,order='F')/3.2808
+    yIn = np.asarray(pd.read_csv('Test/reach3.csv')['1'],dtype=np.float64,order='F')/3.2808
+    xF = pd.read_csv('Test/Final.csv')['0']/3.2808
+    yF = pd.read_csv('Test/Final.csv')['1']/3.2808
+    xS = pd.read_csv('Test/reach3_Final.csv')['0']/3.2808
+    yS = pd.read_csv('Test/reach3_Final.csv')['1']/3.2808
 # Hard Bottoms
     if globVars.ihbot == 1:
         Fhb = '%sTest/'%gPath
@@ -81,21 +81,23 @@ if __name__ == '__main__':
         D = np.asarray(np.loadtxt('%sreach3.hs'%F)[:,1],dtype=np.float64,order='F')
 #Assign grid cell widths to each cell        
     sb.memory.dx = sb.vargrid(sb.memorymain.dxv,sb.memorymain.ndxv,sb.arrsize.ndx)
-    
 #Initial Profile - + below SWL and - Above SWl
     sb.initialprofile(globVars.tpin,-1*yIn,xIn,sb.memory.dx,sb.arrsize.ndx,len(xIn))
     if globVars.ihbot == 1:
         sub.hbelev(sb,xHB,-yHB)
-        
+    print('here')
 #Contour elvs to track - choose 3
     globVars.ielv,globVars.xelvi,globVars.xelvr,globVars.xrefelv,nrmax,erroc = sb.initialcontourlocations(globVars.elv1,globVars.refelev)
 #Initialize som arrays
     sb.memorymain.d = sb.memorymain.di
     sb.memorymain.dp = sb.memorymain.di
-#    print(sb.memorymain.d[0],sb.memorymain.di[0])
 ##calculate settling velocity
+    print(sb.memorymain.teta)
+    print(sb.memorymain.ateta)
     sb.kvisc(sb.memorymain.teta,sb.memorymain.ateta)
+    print('here3')
     vf = sb.falvel(sb.tempc,sb.memorymain.teta,sb.memorymain.ateta)
+    print('4 mc')
 #
 ##calc hnsratio
     hnsr = np.zeros(249)
@@ -104,7 +106,7 @@ if __name__ == '__main__':
     #Loop through time NOTE: dt and ndt input are in minutes and then converted to seconds
     ndt=globVars.ndt
     sub.temporalInfo(H,D,T,WL,Wi,globVars)
-    
+    print('4 mc')
     hDict = []
     qDict=[]
     sDict=[]
@@ -121,7 +123,7 @@ if __name__ == '__main__':
     idrumax=np.asarray([0])
     overwash = np.asarray([0])
 #    sb.memory.ceq=0
-    
+
     for i in range(ndt):
 #        if i >440 and i<450:
 #            print(i)

@@ -160,13 +160,14 @@ def hbelev(sb,xB,yB):
                 break
             
         sb.memorymain.dbot[i] = yB[j] + (yB[j+1]-yB[j])*(sb.memorymain.x[i]-xB[j])/(xB[j+1]-xB[j])
-#        print(i,j,sb.memorymain.dbot[i])
+        print(i,j,sb.memorymain.dbot[i])
     #check not above profile
-#    print('check')
+    print('check')
     for i in range(sb.arrsize.ndx):
+        print(i)
         if sb.memorymain.dbot[i]<sb.memorymain.di[i]:
             sb.memorymain.dbot[i] = sb.memorymain.di[i]
-     
+    print('end') 
             
             
 def initialize(sb):

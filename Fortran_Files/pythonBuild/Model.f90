@@ -47,7 +47,7 @@ end	Subroutine HNSRATIO
      Integer,intent(inout):: NRAV,IHB(0:NDX-1)
      Real(8),intent(inout):: D(0:NDX-1),CRANG,TIME
 
-     Integer:: N1(50),N2(50)
+     Integer:: N1(0:50),N2(0:50)
      Integer:: K1,K2,I
 
 	!
@@ -283,7 +283,7 @@ end	Subroutine HNSRATIO
 !    		XSCDUNE,DSCDUNE,XBERMS,DBERMS,XBERME,FACTL,DBERME,XFORS,DFORS, DX(NDX)
     	Real(8):: SUMX,CDEAN,XDEAN!, XSTART
     	Integer:: ISTAT,I,J
-     Real(8), intent(inout):: DTI(NRV),XT(NRV)
+     Real(8), intent(inout):: DTI(0:NRV-1),XT(0:NRV-1)
 
     	!*
     	!* DETERMINE THE COEFFICIENT IN DEAN'S EQUILIBRIUM EQUATION AND
@@ -492,7 +492,7 @@ end	Subroutine HNSRATIO
      L=L+1
      BPMAX=0
 !     write(*,*) nfs,errocc
-     DO I=NFS,NDX-1
+     DO I=max(NFS,1),NDX-1
          BTEMP=2*(D(I)-D(I-1))/(DX(I)+DX(I-1))
          IF(ABS(BTEMP)>ABS(BPMAX))THEN
              BPMAX=BTEMP
@@ -983,7 +983,8 @@ end	Subroutine HNSRATIO
     				HR2N=0.0
     			End If
     			REFN=SUMPDF
-    			DO J=ILOOP,IPMAX-1
+			print *, ILOOP
+    			DO J=ILOOP+1,IPMAX
     				PDF(J)=0.0
     			End Do
     		End If
@@ -1616,7 +1617,7 @@ end	Subroutine HNSRATIO
     	Real(8),intent(inout):: DP(0:NDX-1),D(0:NDX-1),QP(0:NDX),Q(0:NDX),DBOT(0:NDX-1),SCF
     	Integer,intent(inout):: NRU
     
-    	Integer::ICROSS(50),NCROSS,IDIR(50),IS,ISGN,II,IL1,IL2,ILEX
+    	Integer::ICROSS(0:49),NCROSS,IDIR(0:49),IS,ISGN,II,IL1,IL2,ILEX
     	Integer:: K,NStart,NStop,NS,I,IHBB,IHBBT,IEXP
     
     	Real(8),allocatable:: QBOT(:),QAKT(:)
@@ -1627,7 +1628,7 @@ end	Subroutine HNSRATIO
     	! POTENTIAL TRANSPORT (IGNORING EXPOSED HARD BOTTOMS)
     	!
 
-    	DO I=NRU,NDX
+    	DO I=NRU-1,NDX
     		QAKT(I)=0.5*(QP(I)+Q(I))
     		QBOT(I)=QAKT(I)
     	End Do
@@ -1635,18 +1636,18 @@ end	Subroutine HNSRATIO
     	! LOCATE OFFSHORE (+) AND ONSHORE (-) TRANSPORT AREAS
     	!
     	NCROSS=1
-    	ICROSS(1)=NRU
+    	ICROSS(0)=NRU
     	!
     	! FIND TRANSPORT DIRECTION IN FIRST AREA
     	!
-    	DO I=NRU,NDX
+    	DO I=NRU,NDX-1
     		IF(QAKT(I)/=0)THEN
     			ISGN=NINT(ABS(QAKT(I))/QAKT(I))
     			Exit
     		End If
     	End Do
-    	IDIR(1)=ISGN
-    	DO I=NRU,NDX
+    	IDIR(0)=ISGN
+    	DO I=NRU,NDX-1
     		IF(QAKT(I)>0) IS=1
     		IF(QAKT(I)<0) IS=-1
     		IF(QAKT(I)==0) IS=ISGN
@@ -1654,11 +1655,11 @@ end	Subroutine HNSRATIO
     		IF(IS/=ISGN)THEN
     			ISGN=IS
     			NCROSS=NCROSS+1
-    			ICROSS(NCROSS)=I-1
-    			IDIR(NCROSS)=ISGN
+    			ICROSS(NCROSS-1)=I-1
+    			IDIR(NCROSS-1)=ISGN
     		End If
     	End Do
-    	ICROSS(NCROSS+1)=NDX-1
+    	ICROSS(NCROSS)=NDX-1
     	!
     	! APPLY SAND CONSERVATION EQUATION AND CHECK FOR EXPOSED HARD
     	! BOTTOMS. CORRECT TRANSPORT RATES IF NECESSARY; DO THE
@@ -1666,18 +1667,18 @@ end	Subroutine HNSRATIO
     	!
     	IHBBT=0
 !write(*,*) NCROSS
-    	DO K=0,NCROSS
+    	DO K=0,NCROSS-1
 !write(*,*) K
     		IF(IDIR(K)==1)THEN
     			NSTART=ICROSS(K)
     			NSTOP=ICROSS(K+1)-1
     			NS=1
-    			IF(K==NCROSS) NSTOP=NSTOP+1
+    			IF(K==NCROSS-1) NSTOP=NSTOP+1
     		ELSE
     			NSTART=ICROSS(K+1)+1
     			NSTOP=ICROSS(K)+2
     			NS=-1
-    			IF(K==1) NSTOP=NSTOP-1
+    			IF(K==0) NSTOP=NSTOP-1
     		End If
     		DIR=Real(IDIR(K))
     		IHBB=0
@@ -1936,7 +1937,7 @@ end	Subroutine HNSRATIO
     	Integer:: NM1,NM2,J,I
     	Real(8),allocatable:: S(:)
     	Real(8):: DX1,DY1,DX2,DY2,DXN2,DXN1
-    	Allocate(S(NDX))
+    	Allocate(S(0:NDX))
     	NM2=N-2
     	NM1=N-1
     	DX1=X(1)-X(0)
@@ -1947,10 +1948,10 @@ end	Subroutine HNSRATIO
     	DO I=0,NM2
     		DX2=X(I+2)-X(I+1)
     		DY2=(Y(I+2)-Y(I+1))/DX2*6.
-    		A(I,1)=DX1
-    		A(I,2)=2.*(DX1+DX2)
-    		A(I,3)=DX2
-    		A(I,4)=DY2-DY1
+    		A(I,0)=DX1
+    		A(I,1)=2.*(DX1+DX2)
+    		A(I,2)=DX2
+    		A(I,3)=DY2-DY1
     		DX1=DX2
     		DY1=DY2
     	End Do
@@ -2146,7 +2147,7 @@ end	Subroutine HNSRATIO
     			DXPREV=DX(I)
 !write(*,*) DXPREV, MAV
     		End If
-    		IF(I>NDX-MAV/2)THEN
+    		IF(I>NDX-MAV/2-1)THEN
     			DSMO(I)=D(I)
     		ELSEIF(I-MAV/2<nswall)THEN
     			DO J=0,I-1
@@ -2161,7 +2162,7 @@ end	Subroutine HNSRATIO
     			End Do
     			DSMO(I)=SUM2/SUM
     		ELSE
-    			DO J=0,I
+    			DO J=0,I-1
     				DSMO(J)=D(J)
     			End Do
     			Exit

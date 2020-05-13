@@ -10,7 +10,7 @@ A.7 if grid is constant continue to A.10
 A.8 Number of different grid cell regions: ngrid
 	3
 A.9 Grid cell widths and number of cells in each region (landward to seaward) dxv[i],ndxv[i],i=1,ngrid
-1.5240185320653499 96 3.0480370641306997 84 6.0960741282613995 72
+1.52401853207 96 3.04803706413 84 6.09607412826 72
 A.10 Number of time steps and value of time steps in minutes: ndt,dt
 	1440 3
 A.11 Number of time steps for intermediate output: nwr

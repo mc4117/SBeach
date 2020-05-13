@@ -1,0 +1,795 @@
+running build
+running config_cc
+unifing config_cc, config, build_clib, build_ext, build commands --compiler options
+running config_fc
+unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
+running build_src
+build_src
+building extension "model" sources
+f2py options: []
+f2py:> /tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c
+creating /tmp/tmp1lp_0ljm/src.linux-x86_64-3.5
+Reading fortran codes...
+	Reading file 'AS_Processing.F90' (format:free)
+	Reading file 'AS_Memory.f90' (format:free)
+	Reading file 'AS_Errors.F90' (format:free)
+	Reading file 'Model.f90' (format:free)
+Line #12 in Model.f90:"        data (xt(j),j=1,29)/.12,.14,.34,.46,.54,.62,.70,.76,.82,.88,                .94,1.0,1.05,1.1,1.16,1.21,1.26,1.32,1.38,1.44,1.5,1.57,1.65,                1.74,1.84,2.0,2.16,2.38,2.48/ "
+	analyzeline: implied-DO list "(xt(j),j=1,29)" is not supported. Skipping.
+Line #15 in Model.f90:"        data (yt(j),j=1,29)/1.29,1.29,1.295,1.30,1.305,1.31,1.315,                1.32,1.325,1.33,1.335,1.34,1.345,1.35,1.355,1.36,1.365,1.37,                1.375,1.38,1.385,1.39,1.395,1.4,1.405,1.41,1.413,1.415,1.415/ "
+	analyzeline: implied-DO list "(yt(j),j=1,29)" is not supported. Skipping.
+Post-processing...
+	Block: model
+			Block: initialcontourlocations
+In: :model:AS_Processing.F90:initialcontourlocations
+get_useparameters: no module memorymain info used by initialcontourlocations
+In: :model:AS_Processing.F90:initialcontourlocations
+get_useparameters: no module arrsize info used by initialcontourlocations
+			Block: arrsize
+				Block: initarrsize
+			Block: memory
+				Block: initmemory
+				Block: donememory
+			Block: memoryq_u
+				Block: initmemoryq_u
+				Block: donememoryq_u
+			Block: memoryconst
+			Block: memorymain
+				Block: allocatearr
+				Block: donememorymain
+			Block: iohandles
+			Block: deallerror
+			Block: wriscr
+			Block: hnsratio
+			Block: avhbot
+			Block: initialprofile
+			Block: vargrid
+			Block: preprocesswaves
+			Block: maxang
+			Block: wavran
+			Block: trran
+			Block: swshdom
+			Block: exrun
+			Block: consan
+			Block: hrdbot
+			Block: randir
+			Block: eqcof
+			Block: linwav
+			Block: kvisc
+			Block: cubspl
+			Block: falvel
+			Block: slopetransport
+			Block: random_i
+			Block: addsetuptodepth
+			Block: domsmo
+Post-processing (stage 2)...
+	Block: model
+		Block: unknown_interface
+			Block: initialcontourlocations
+			Block: arrsize
+				Block: initarrsize
+			Block: memory
+				Block: initmemory
+				Block: donememory
+			Block: memoryq_u
+				Block: initmemoryq_u
+				Block: donememoryq_u
+			Block: memoryconst
+			Block: memorymain
+				Block: allocatearr
+				Block: donememorymain
+			Block: iohandles
+			Block: deallerror
+			Block: wriscr
+			Block: hnsratio
+			Block: avhbot
+			Block: initialprofile
+			Block: vargrid
+			Block: preprocesswaves
+			Block: maxang
+			Block: wavran
+			Block: trran
+			Block: swshdom
+			Block: exrun
+			Block: consan
+			Block: hrdbot
+			Block: randir
+			Block: eqcof
+			Block: linwav
+			Block: kvisc
+			Block: cubspl
+			Block: falvel
+			Block: slopetransport
+			Block: random_i
+			Block: addsetuptodepth
+			Block: domsmo
+Building modules...
+	Building module "model"...
+		Constructing wrapper function "initialcontourlocations"...
+		  ielv,xelvi,xelvr,nrmax,errocc,xrefelv = initialcontourlocations(elv,refelv)
+		Constructing wrapper function "deallerror"...
+		  deallerror(dstat,varn)
+		Constructing wrapper function "wriscr"...
+		  wriscr(msg)
+		Constructing wrapper function "hnsratio"...
+		  hnsratio(y)
+		Constructing wrapper function "avhbot"...
+		  avhbot(time,ihb,d,nrav,crang,[ndx])
+		Constructing wrapper function "initialprofile"...
+		  initialprofile(tpin,dti,xt,dx,[ndx,nrv])
+		Constructing wrapper function "vargrid"...
+		  dx = vargrid(dxv,ndxv,ndx)
+		Constructing wrapper function "preprocesswaves"...
+		  hbeg,ho,zbeg = preprocesswaves(iwave,irand,offshore,t,dmeas,rperc,hin,dndx_value,zin)
+		Constructing wrapper function "maxang"...
+		  maxang(time,d,nfs,bmax,[ndx])
+		Constructing wrapper function "wavran"...
+		  wavran(dx,nswall,hbeg,t,zbeg,d,h,e,istop,zw,diss,brok,x,iswlim,hnsr,w,zwind,da,[ndx])
+		Constructing wrapper function "trran"...
+		  trran(ho,zo,t,vf,x,d,istop,zw,diss,brok,edhdx,q,iswlim,[ndx])
+		Constructing wrapper function "swshdom"...
+		  swshdom(x,d,e,ho,nswall,dfs,nru,nfs,imin,blr,iswall,izero,lru,zo,drumax,itime,idrumax,brok,dru,[ndx])
+		Constructing wrapper function "exrun"...
+		  exrun(nru,nfs,q,imin,x,d,overwash,izero,lru,blr,dfs,dru,[ndx])
+		Constructing wrapper function "consan"...
+		  consan(nru,d,q,dp,qp,nswall,pefail,iswfail,swfail,time,istop,iswall,factl,lunits,ihbot,ihb,dbot,scf,[ndx])
+		Constructing wrapper function "hrdbot"...
+		  hrdbot(nru,dp,d,qp,q,ihb,dbot,scf,[ndx])
+		Constructing wrapper function "randir"...
+		  randir(ho,zo,t,vf,d,zw,istop,sigtr,[ndx])
+		Constructing wrapper function "eqcof"...
+		  eqcof(cdean)
+		Constructing wrapper function "linwav"...
+		  l,cg,cn = linwav(t,dd)
+		Constructing wrapper function "kvisc"...
+		  kvisc(teta,ateta)
+		Constructing wrapper function "cubspl"...
+		  cubspl(x,y,n,iend,a)
+		Constructing wrapper function "falvel"...
+		  vf = falvel(tempc,teta,ateta)
+		Constructing wrapper function "slopetransport"...
+		  slopetransport(istop,nswall,edhdx,d,dx,[ndx])
+		Constructing wrapper function "random_i"...
+		  hout = random_i(rperc,hin)
+		Constructing wrapper function "addsetuptodepth"...
+		  addsetuptodepth(istop,dsmo,e,[ndx])
+		Constructing wrapper function "domsmo"...
+		  dsmo = domsmo(dx,d,ho,nswall,[ndx])
+		Constructing F90 module support for "arrsize"...
+		  Variables: ndx ndxmmax strlenmax statusupdate
+			Constructing wrapper function "arrsize.initarrsize"...
+			  initarrsize()
+		Constructing F90 module support for "memory"...
+		  Variables: ccorr cred cexp sratio dt cc bi ceq aexp pi ielev cexr ro eps facth g bmax lamm xstart cexo bav lo masserror k ros d50 cc2 psurge dsurge dx
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+			Constructing wrapper function "memory.initmemory"...
+			  initmemory()
+			Constructing wrapper function "memory.donememory"...
+			  donememory()
+		Constructing F90 module support for "memoryq_u"...
+		  Variables: sremgrid checkonly prid errocc hbd hbx hbnrv prix rrm prinrv
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+			Constructing wrapper function "memoryq_u.initmemoryq_u"...
+			  initmemoryq_u()
+			Constructing wrapper function "memoryq_u.donememoryq_u"...
+			  donememoryq_u()
+		Constructing F90 module support for "memoryconst"...
+		  Variables: kref gambr kappa irmax gamstb prixdir
+		Constructing F90 module support for "memorymain"...
+		  Variables: nrwri tdmx diss hmx xsv di q edhdx dp emx volch dxv dmx dpmx nrndxv tdmn ihb dsmo x nrdxv dsv e brok temx dbot ndxv ateta tdpmx h da thmx d dmn wri zw teta qp
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+getarrdims:warning: assumed shape array, using 0 instead of ':'
+			Constructing wrapper function "memorymain.allocatearr"...
+			  allocatearr()
+			Constructing wrapper function "memorymain.donememorymain"...
+			  donememorymain()
+		Constructing F90 module support for "iohandles"...
+		  Variables: fhoxvr fhoprc fhipri fhiang fhiwnd fhiwav fhicfg fholog fhielv fhoscr fhoexcel fhihdb fhiprm fhorpt
+	Wrote C/API module "model" to file "/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c"
+	Fortran 90 wrappers are saved to "/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/model-f2pywrappers2.f90"
+  adding '/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/fortranobject.c' to sources.
+  adding '/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5' to include_dirs.
+copying /home/mc4117/.local/lib/python3.5/site-packages/numpy/f2py/src/fortranobject.c -> /tmp/tmp1lp_0ljm/src.linux-x86_64-3.5
+copying /home/mc4117/.local/lib/python3.5/site-packages/numpy/f2py/src/fortranobject.h -> /tmp/tmp1lp_0ljm/src.linux-x86_64-3.5
+  adding '/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/model-f2pywrappers2.f90' to sources.
+build_src: building npy-pkg config files
+running build_ext
+customize UnixCCompiler
+customize UnixCCompiler using build_ext
+get_default_fcompiler: matching types: '['gnu95', 'intel', 'lahey', 'pg', 'absoft', 'nag', 'vast', 'compaq', 'intele', 'intelem', 'gnu', 'g95', 'pathf95', 'nagfor']'
+customize Gnu95FCompiler
+Found executable /usr/bin/gfortran
+customize Gnu95FCompiler
+customize Gnu95FCompiler using build_ext
+building 'model' extension
+compiling C sources
+C compiler: x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -g -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+
+creating /tmp/tmp1lp_0ljm/tmp
+creating /tmp/tmp1lp_0ljm/tmp/tmp1lp_0ljm
+creating /tmp/tmp1lp_0ljm/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5
+compile options: '-I/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5 -I/home/mc4117/.local/lib/python3.5/site-packages/numpy/core/include -I/usr/include/python3.5m -c'
+x86_64-linux-gnu-gcc: /tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/fortranobject.c
+x86_64-linux-gnu-gcc: /tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c
+In file included from /home/mc4117/.local/lib/python3.5/site-packages/numpy/core/include/numpy/ndarraytypes.h:1832:0,
+                 from /home/mc4117/.local/lib/python3.5/site-packages/numpy/core/include/numpy/ndarrayobject.h:12,
+                 from /home/mc4117/.local/lib/python3.5/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                 from /tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/fortranobject.h:1,
+                 from /tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:16:
+/home/mc4117/.local/lib/python3.5/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:17:2: warning: #warning "Using deprecated NumPy API, disable it with " "#define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+ #warning "Using deprecated NumPy API, disable it with " \
+  ^
+In file included from /home/mc4117/.local/lib/python3.5/site-packages/numpy/core/include/numpy/ndarraytypes.h:1832:0,
+                 from /home/mc4117/.local/lib/python3.5/site-packages/numpy/core/include/numpy/ndarrayobject.h:12,
+                 from /home/mc4117/.local/lib/python3.5/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                 from /tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/fortranobject.h:1,
+                 from /tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/fortranobject.c:2:
+/home/mc4117/.local/lib/python3.5/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:17:2: warning: #warning "Using deprecated NumPy API, disable it with " "#define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+ #warning "Using deprecated NumPy API, disable it with " \
+  ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c: In function ‘f2py_rout_model_initialcontourlocations’:
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:432:7: warning: unused variable ‘strlenmax’ [-Wunused-variable]
+   int strlenmax = 0;
+       ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:431:10: warning: unused variable ‘di’ [-Wunused-variable]
+   double di = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:430:10: warning: unused variable ‘x’ [-Wunused-variable]
+   double x = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:429:7: warning: unused variable ‘ndx’ [-Wunused-variable]
+   int ndx = 0;
+       ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c: In function ‘f2py_rout_model_initialprofile’:
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:990:10: warning: unused variable ‘dt’ [-Wunused-variable]
+   double dt = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:989:10: warning: unused variable ‘di’ [-Wunused-variable]
+   double di = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:988:10: warning: unused variable ‘xstart’ [-Wunused-variable]
+   double xstart = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:987:10: warning: unused variable ‘x’ [-Wunused-variable]
+   double x = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c: In function ‘f2py_rout_model_preprocesswaves’:
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:1302:10: warning: unused variable ‘lo’ [-Wunused-variable]
+   double lo = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:1301:10: warning: unused variable ‘dsurge’ [-Wunused-variable]
+   double dsurge = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:1300:10: warning: unused variable ‘cc’ [-Wunused-variable]
+   double cc = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c: In function ‘f2py_rout_model_maxang’:
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:1477:10: warning: unused variable ‘xstart’ [-Wunused-variable]
+   double xstart = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:1476:10: warning: unused variable ‘dx’ [-Wunused-variable]
+   double dx = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:1475:10: warning: unused variable ‘dt’ [-Wunused-variable]
+   double dt = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c: In function ‘f2py_rout_model_wavran’:
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:1630:10: warning: unused variable ‘kref’ [-Wunused-variable]
+   double kref = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:1629:10: warning: unused variable ‘irmax’ [-Wunused-variable]
+   double irmax = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:1628:10: warning: unused variable ‘cc’ [-Wunused-variable]
+   double cc = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:1627:10: warning: unused variable ‘gamstb’ [-Wunused-variable]
+   double gamstb = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:1626:10: warning: unused variable ‘lo’ [-Wunused-variable]
+   double lo = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:1625:10: warning: unused variable ‘pi’ [-Wunused-variable]
+   double pi = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:1624:10: warning: unused variable ‘kappa’ [-Wunused-variable]
+   double kappa = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c: In function ‘f2py_rout_model_trran’:
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2025:10: warning: unused variable ‘lamm’ [-Wunused-variable]
+   double lamm = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2024:10: warning: unused variable ‘ros’ [-Wunused-variable]
+   double ros = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2023:10: warning: unused variable ‘d50’ [-Wunused-variable]
+   double d50 = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2022:10: warning: unused variable ‘ro’ [-Wunused-variable]
+   double ro = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2021:10: warning: unused variable ‘cred’ [-Wunused-variable]
+   double cred = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2020:10: warning: unused variable ‘ccorr’ [-Wunused-variable]
+   double ccorr = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2019:10: warning: unused variable ‘g’ [-Wunused-variable]
+   double g = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2018:10: warning: unused variable ‘cc2’ [-Wunused-variable]
+   double cc2 = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2017:10: warning: unused variable ‘ceq’ [-Wunused-variable]
+   double ceq = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2016:10: warning: unused variable ‘gambr’ [-Wunused-variable]
+   double gambr = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2015:10: warning: unused variable ‘k’ [-Wunused-variable]
+   double k = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2014:10: warning: unused variable ‘sratio’ [-Wunused-variable]
+   double sratio = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2013:10: warning: unused variable ‘bi’ [-Wunused-variable]
+   double bi = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c: In function ‘f2py_rout_model_swshdom’:
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2367:10: warning: unused variable ‘dx’ [-Wunused-variable]
+   double dx = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2366:10: warning: unused variable ‘d50’ [-Wunused-variable]
+   double d50 = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2365:10: warning: unused variable ‘ros’ [-Wunused-variable]
+   double ros = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2364:10: warning: unused variable ‘lamm’ [-Wunused-variable]
+   double lamm = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2363:10: warning: unused variable ‘ro’ [-Wunused-variable]
+   double ro = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2362:10: warning: unused variable ‘cexr’ [-Wunused-variable]
+   double cexr = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2361:7: warning: unused variable ‘ielev’ [-Wunused-variable]
+   int ielev = 0;
+       ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2360:10: warning: unused variable ‘dt’ [-Wunused-variable]
+   double dt = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2359:10: warning: unused variable ‘cexp’ [-Wunused-variable]
+   double cexp = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2358:10: warning: unused variable ‘cred’ [-Wunused-variable]
+   double cred = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2357:10: warning: unused variable ‘g’ [-Wunused-variable]
+   double g = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2356:10: warning: unused variable ‘cc2’ [-Wunused-variable]
+   double cc2 = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2355:10: warning: unused variable ‘k’ [-Wunused-variable]
+   double k = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2354:10: warning: unused variable ‘lo’ [-Wunused-variable]
+   double lo = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2353:10: warning: unused variable ‘cexo’ [-Wunused-variable]
+   double cexo = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2352:10: warning: unused variable ‘xstart’ [-Wunused-variable]
+   double xstart = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2351:10: warning: unused variable ‘dsurge’ [-Wunused-variable]
+   double dsurge = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2350:10: warning: unused variable ‘pi’ [-Wunused-variable]
+   double pi = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2349:10: warning: unused variable ‘psurge’ [-Wunused-variable]
+   double psurge = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2348:10: warning: unused variable ‘aexp’ [-Wunused-variable]
+   double aexp = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2347:10: warning: unused variable ‘ceq’ [-Wunused-variable]
+   double ceq = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2346:10: warning: unused variable ‘cc’ [-Wunused-variable]
+   double cc = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2345:10: warning: unused variable ‘sratio’ [-Wunused-variable]
+   double sratio = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2344:10: warning: unused variable ‘bi’ [-Wunused-variable]
+   double bi = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2343:10: warning: unused variable ‘ccorr’ [-Wunused-variable]
+   double ccorr = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c: In function ‘f2py_rout_model_exrun’:
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2722:10: warning: unused variable ‘d50’ [-Wunused-variable]
+   double d50 = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2721:10: warning: unused variable ‘xstart’ [-Wunused-variable]
+   double xstart = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2720:10: warning: unused variable ‘rrm’ [-Wunused-variable]
+   double rrm = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2719:10: warning: unused variable ‘dx’ [-Wunused-variable]
+   double dx = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2718:10: warning: unused variable ‘dsurge’ [-Wunused-variable]
+   double dsurge = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2717:10: warning: unused variable ‘dt’ [-Wunused-variable]
+   double dt = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2716:10: warning: unused variable ‘sratio’ [-Wunused-variable]
+   double sratio = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2715:10: warning: unused variable ‘bi’ [-Wunused-variable]
+   double bi = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c: In function ‘f2py_rout_model_consan’:
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2996:10: warning: unused variable ‘psurge’ [-Wunused-variable]
+   double psurge = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:99:19: warning: unused variable ‘capi_strlenmax_len’ [-Wunused-variable]
+ #define slen(var) capi_ ## var ## _len
+                   ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2995:7: note: in expansion of macro ‘slen’
+   int slen(strlenmax);
+       ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2994:10: warning: unused variable ‘strlenmax’ [-Wunused-variable]
+   string strlenmax = NULL;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2993:10: warning: unused variable ‘dsurge’ [-Wunused-variable]
+   double dsurge = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2992:10: warning: unused variable ‘bav’ [-Wunused-variable]
+   double bav = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2991:7: warning: unused variable ‘errocc’ [-Wunused-variable]
+   int errocc = 0;
+       ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2990:10: warning: unused variable ‘bmax’ [-Wunused-variable]
+   double bmax = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2989:7: warning: unused variable ‘ielev’ [-Wunused-variable]
+   int ielev = 0;
+       ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2988:10: warning: unused variable ‘dt’ [-Wunused-variable]
+   double dt = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2987:7: warning: unused variable ‘checkonly’ [-Wunused-variable]
+   int checkonly = 0;
+       ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2986:10: warning: unused variable ‘xstart’ [-Wunused-variable]
+   double xstart = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2985:10: warning: unused variable ‘eps’ [-Wunused-variable]
+   double eps = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:2984:10: warning: unused variable ‘dx’ [-Wunused-variable]
+   double dx = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c: In function ‘f2py_rout_model_hrdbot’:
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:3341:10: warning: unused variable ‘dt’ [-Wunused-variable]
+   double dt = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:3340:10: warning: unused variable ‘xstart’ [-Wunused-variable]
+   double xstart = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:3339:10: warning: unused variable ‘dx’ [-Wunused-variable]
+   double dx = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c: In function ‘f2py_rout_model_randir’:
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:3569:10: warning: unused variable ‘prixdir’ [-Wunused-variable]
+   double prixdir = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:3568:10: warning: unused variable ‘gambr’ [-Wunused-variable]
+   double gambr = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c: In function ‘f2py_rout_model_eqcof’:
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:3752:10: warning: unused variable ‘g’ [-Wunused-variable]
+   double g = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:3751:10: warning: unused variable ‘ros’ [-Wunused-variable]
+   double ros = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:3750:10: warning: unused variable ‘d50’ [-Wunused-variable]
+   double d50 = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:3749:10: warning: unused variable ‘ro’ [-Wunused-variable]
+   double ro = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:3748:10: warning: unused variable ‘bi’ [-Wunused-variable]
+   double bi = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:3747:10: warning: unused variable ‘ceq’ [-Wunused-variable]
+   double ceq = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:3746:10: warning: unused variable ‘k’ [-Wunused-variable]
+   double k = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:3745:10: warning: unused variable ‘sratio’ [-Wunused-variable]
+   double sratio = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:3744:10: warning: unused variable ‘cred’ [-Wunused-variable]
+   double cred = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:3743:10: warning: unused variable ‘ccorr’ [-Wunused-variable]
+   double ccorr = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c: In function ‘f2py_rout_model_linwav’:
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:3858:10: warning: unused variable ‘g’ [-Wunused-variable]
+   double g = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:3857:10: warning: unused variable ‘ros’ [-Wunused-variable]
+   double ros = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:3856:10: warning: unused variable ‘k’ [-Wunused-variable]
+   double k = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:3855:10: warning: unused variable ‘lo’ [-Wunused-variable]
+   double lo = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:3854:10: warning: unused variable ‘ro’ [-Wunused-variable]
+   double ro = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:3853:10: warning: unused variable ‘pi’ [-Wunused-variable]
+   double pi = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:3852:10: warning: unused variable ‘ceq’ [-Wunused-variable]
+   double ceq = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:3851:10: warning: unused variable ‘cc’ [-Wunused-variable]
+   double cc = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:3850:10: warning: unused variable ‘cred’ [-Wunused-variable]
+   double cred = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:3849:10: warning: unused variable ‘ccorr’ [-Wunused-variable]
+   double ccorr = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c: In function ‘f2py_rout_model_falvel’:
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:4229:10: warning: unused variable ‘d50’ [-Wunused-variable]
+   double d50 = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:4228:10: warning: unused variable ‘sratio’ [-Wunused-variable]
+   double sratio = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:4227:10: warning: unused variable ‘bi’ [-Wunused-variable]
+   double bi = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c: In function ‘f2py_rout_model_slopetransport’:
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:4362:10: warning: unused variable ‘eps’ [-Wunused-variable]
+   double eps = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:4361:10: warning: unused variable ‘k’ [-Wunused-variable]
+   double k = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c: In function ‘f2py_rout_model_domsmo’:
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:4727:10: warning: unused variable ‘lo’ [-Wunused-variable]
+   double lo = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:4726:10: warning: unused variable ‘pi’ [-Wunused-variable]
+   double pi = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:4725:10: warning: unused variable ‘cc’ [-Wunused-variable]
+   double cc = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c: In function ‘f2py_rout_model_memorymain_allocatearr’:
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5189:10: warning: unused variable ‘prid’ [-Wunused-variable]
+   double prid = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5188:10: warning: unused variable ‘hbx’ [-Wunused-variable]
+   double hbx = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5187:10: warning: unused variable ‘hbd’ [-Wunused-variable]
+   double hbd = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5186:10: warning: unused variable ‘prix’ [-Wunused-variable]
+   double prix = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5185:10: warning: unused variable ‘dx’ [-Wunused-variable]
+   double dx = 0;
+          ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5184:7: warning: unused variable ‘ndx’ [-Wunused-variable]
+   int ndx = 0;
+       ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c: In function ‘f2py_setup_memory’:
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5402:34: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memory_def[i_f2py++].func = dx;
+                                  ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c: In function ‘f2py_setup_memoryq_u’:
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5432:37: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memoryq_u_def[i_f2py++].func = prid;
+                                     ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5434:37: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memoryq_u_def[i_f2py++].func = hbd;
+                                     ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5435:37: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memoryq_u_def[i_f2py++].func = hbx;
+                                     ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5437:37: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memoryq_u_def[i_f2py++].func = prix;
+                                     ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c: In function ‘f2py_setup_memorymain’:
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5520:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = tdmx;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5521:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = diss;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5522:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = hmx;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5523:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = xsv;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5524:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = di;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5525:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = q;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5526:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = edhdx;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5527:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = dp;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5528:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = emx;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5529:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = volch;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5530:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = dxv;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5531:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = dmx;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5532:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = dpmx;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5534:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = tdmn;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5535:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = ihb;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5536:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = dsmo;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5537:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = x;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5539:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = dsv;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5540:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = e;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5541:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = brok;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5542:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = temx;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5543:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = dbot;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5544:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = ndxv;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5545:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = ateta;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5546:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = tdpmx;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5547:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = h;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5548:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = da;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5549:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = thmx;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5550:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = d;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5551:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = dmn;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5552:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = wri;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5553:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = zw;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5554:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = teta;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:5555:38: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   f2py_memorymain_def[i_f2py++].func = qp;
+                                      ^
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c: At top level:
+/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.c:184:12: warning: ‘f2py_size’ defined but not used [-Wunused-function]
+ static int f2py_size(PyArrayObject* var, ...)
+            ^
+compiling Fortran 90 module sources
+Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -fbounds-check -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fbounds-check -fPIC -O3 -funroll-loops
+compile options: '-I/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5 -I/home/mc4117/.local/lib/python3.5/site-packages/numpy/core/include -I/usr/include/python3.5m -c'
+extra options: '-J/tmp/tmp1lp_0ljm/ -I/tmp/tmp1lp_0ljm/'
+gfortran:f90: AS_Memory.f90
+compiling Fortran sources
+Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -fbounds-check -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fbounds-check -fPIC -O3 -funroll-loops
+compile options: '-I/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5 -I/home/mc4117/.local/lib/python3.5/site-packages/numpy/core/include -I/usr/include/python3.5m -c'
+extra options: '-J/tmp/tmp1lp_0ljm/ -I/tmp/tmp1lp_0ljm/'
+gfortran:f90: AS_Processing.F90
+gfortran:f90: AS_Errors.F90
+gfortran:f90: Model.f90
+Model.f90:1953:10:
+
+       A(I,4)=DY2-DY1
+          1
+Warning: Array reference at (1) is out of bounds (4 > 3) in dimension 2
+Model.f90:1922:28:
+
+      CALL CUBSPL(TETA,NYVAL,8,0,ATETA)
+                            1
+Warning: Non-variable expression in variable definition context (actual argument to INTENT = OUT/INOUT) at (1)
+gfortran:f90: /tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/model-f2pywrappers2.f90
+/usr/bin/gfortran -Wall -g -Wall -g -shared /tmp/tmp1lp_0ljm/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/modelmodule.o /tmp/tmp1lp_0ljm/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/fortranobject.o /tmp/tmp1lp_0ljm/AS_Memory.o /tmp/tmp1lp_0ljm/AS_Processing.o /tmp/tmp1lp_0ljm/AS_Errors.o /tmp/tmp1lp_0ljm/Model.o /tmp/tmp1lp_0ljm/tmp/tmp1lp_0ljm/src.linux-x86_64-3.5/model-f2pywrappers2.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5 -lgfortran -o ./model.cpython-35m-x86_64-linux-gnu.so
+
