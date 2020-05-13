@@ -27,7 +27,6 @@ def aniFunc(i):
     ind = np.where(hDict[i]>0)[0][0]
     ind2 = np.where(np.abs(wlDict[i][1::]-wlDict[i][0:-1])>0)[0][0]
 #    ind3 = np.where(qDict[i][:]>0)[0][0]
-#    print(ind2)
 #    ind = 0
     line.set_data(x,sDict[i])
     line2.set_data(x[ind::],hDict[i][ind:-1])#+nDict[i][ind-1::]+shoreDict[i][ind-1::])
@@ -85,19 +84,14 @@ if __name__ == '__main__':
     sb.initialprofile(globVars.tpin,-1*yIn,xIn,sb.memory.dx,sb.arrsize.ndx,len(xIn))
     if globVars.ihbot == 1:
         sub.hbelev(sb,xHB,-yHB)
-    print('here')
 #Contour elvs to track - choose 3
     globVars.ielv,globVars.xelvi,globVars.xelvr,globVars.xrefelv,nrmax,erroc = sb.initialcontourlocations(globVars.elv1,globVars.refelev)
 #Initialize som arrays
     sb.memorymain.d = sb.memorymain.di
     sb.memorymain.dp = sb.memorymain.di
 ##calculate settling velocity
-    print(sb.memorymain.teta)
-    print(sb.memorymain.ateta)
     sb.kvisc(sb.memorymain.teta,sb.memorymain.ateta)
-    print('here3')
     vf = sb.falvel(sb.tempc,sb.memorymain.teta,sb.memorymain.ateta)
-    print('4 mc')
 #
 ##calc hnsratio
     hnsr = np.zeros(249)
@@ -106,7 +100,6 @@ if __name__ == '__main__':
     #Loop through time NOTE: dt and ndt input are in minutes and then converted to seconds
     ndt=globVars.ndt
     sub.temporalInfo(H,D,T,WL,Wi,globVars)
-    print('4 mc')
     hDict = []
     qDict=[]
     sDict=[]

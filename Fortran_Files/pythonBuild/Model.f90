@@ -983,7 +983,6 @@ end	Subroutine HNSRATIO
     				HR2N=0.0
     			End If
     			REFN=SUMPDF
-			print *, ILOOP
     			DO J=ILOOP+1,IPMAX
     				PDF(J)=0.0
     			End Do
